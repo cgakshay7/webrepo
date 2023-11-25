@@ -1,0 +1,125 @@
+<script>
+    function validate() {
+        var form = document.getElementById('form');
+        var username = document.getElementById('username');
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+        var confirm = document.getElementById('confirm');
+
+        if (username.value == "") {
+            alert("Must have a username!");
+            username.focus();
+            return false;
+        }
+        if (email.value == "") {
+            alert("Must have an email address!");
+            email.focus();
+            return false;
+        }
+        if (password.value == "") {
+            alert("Must have a password!");
+            password.focus();
+            return false;
+        }
+        if (confirm.value == "" || confirm.value != password.value) {
+            alert("Please confirm your password");
+            confirm.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: linear-gradient(to right, #0f20, #203a43, #2c5364);
+        font-family: 'poppins', sans-serif;
+    }
+
+    #form {
+        width: 300px;
+        margin: 20vh auto 0 auto;
+        padding: 20px;
+        background-color: whitesmoke;
+        border: 4px;
+        font-size: 12px;
+    }
+
+    #form h1 {
+        color: #0f2027;
+        text-align: center;
+    }
+
+    #form button {
+        padding: 10px;
+        margin-top: 10px;
+        width: 100%;
+        color: white;
+        background-color: rgb(41, 57, 194);
+        border: none;
+        border-radius: 4px;
+    }
+
+    .input-control {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        font-size: 12px;
+        padding: 10px;
+        width: 95%;
+    }
+
+    .input-control input:focus {
+        outline: 0;
+    }
+
+    .input-control.error input {
+        border-color: #ff3860;
+    }
+
+    .input-control.success input {
+        border-color: #09c372;
+    }
+</style>
+
+<body>
+<div class="container">
+    <form action="" id="form" name="form1" onsubmit="return validate()">
+        <h1>REGISTRATION</h1>
+        <div class="input-control">
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username" required> <BR>
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="email">EMAIL</label>
+            <input type="email" name="email" id="email"> <BR>
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="password">PASSWORD</label>
+            <input type="password" name="password" id="password"><br>
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="CONFIRM PASSWORD">CONFIRM</label>
+            <input type="password" name="confirm" id="confirm">
+            <div class="error"></div>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+</body>
+</html>

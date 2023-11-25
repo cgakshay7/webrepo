@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h2>Quiz Application</h2>
+
+    <div class="question">
+        <p>Q1. What is 2+3?</p>
+        <input type="radio" name="question1" id="correct1"> 5 <br>
+        <input type="radio" name="question1"> 8 <br>
+        <input type="radio" name="question1"> 9 <br>
+        <input type="radio" name="question1"> 10 <br>
+    </div>
+
+    <div class="question">
+        <p>Q2. What is 8+3?</p>
+        <input type="radio" name="question2"> 2 <br>
+        <input type="radio" name="question2"> 8 <br>
+        <input type="radio" name="question2" id="correct2"> 11 <br>
+        <input type="radio" name="question2"> 9 <br>
+    </div>
+
+    <div class="question">
+        <p>Q3. What is 28+3?</p>
+        <input type="radio" name="question3"> 15 <br>
+        <input type="radio" name="question3" id="correct3"> 31 <br>
+        <input type="radio" name="question3"> 10 <br>
+        <input type="radio" name="question3"> 19 <br>
+    </div>
+
+    <!-- Add more questions here -->
+
+    <input type="submit" name="submit" value="Submit Quiz" onClick="result()">
+</div>
+
+<script type="text/javascript">
+    function result() {
+        var score = 0;
+        if (document.getElementById('correct1').checked) {
+            score++;
+        }
+        if (document.getElementById('correct2').checked) {
+            score++;
+        }
+        if (document.getElementById('correct3').checked) {
+            score++;
+        }
+        alert("Your score is: " + score);
+    }
+</script>
+
+</body>
+</html>

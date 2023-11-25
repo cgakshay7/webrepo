@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<style>
+    body{
+        background-color: bisque;
+    }
+   
+</style>
+<center>
+<body>
+    <h2>REGISTER</h2>
+    <form name="form" action="" method="POST" onsubmit="return validateForm()">
+        <table>
+              <tr>
+                <th>Name</th>
+                <td><input type="text" name="fname"></td> 
+            </tr> 
+          
+            <tr>
+                <th>Email Address</th>
+                <td><input type="email" name="email"> </td>
+            </tr>
+          
+            <tr>
+                <th>Whats Your Mob no</th>
+                <td><input type="tel" name="mob"> </td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td><input type="text" name="user"> </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="passcode"> </td>
+            </tr>
+            <tr>
+                <th>gender</th>
+                <td><input type="radio" name="gender" id="male">male <input type="radio" name="gender" id="female">female <br></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>survey question</th>
+                <td> <label for="choose">Would you prefer work from home <br>     or work in office?</label> <br>
+                <input id="choose" name="i-like" required pattern="[Ww]ork from home|[Ww]ork in office"></td>
+            </tr>
+            <tr class="center">
+                <th colspan="2"><input type="submit" value="submit" style=" 
+                    background-color:#04AA6D; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin-left: 9%;
+                  "></th>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validateForm() {
+            var fname = document.form.fname.value;
+            var mob = document.form.mob.value;
+            var user = document.form.user.value;
+            var passcode = document.form.passcode.value;
+            var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            var ren = /[0-9!@#$%^&*]/
+
+            if (fname == "") {
+                alert("Enter First Name !!");
+                document.form.fname.focus();
+                return false;
+            }
+            else if(ren.test(fname)){
+                alert("Enter Valid Name !!");
+                document.form.fname.focus();
+                return false;
+            }
+
+            if (mob == "") {
+                alert("Enter Mobile number");
+                return false;
+            }
+            else if (isNaN(mob)) {
+                alert("Enter valid Mobile number");
+                return false;
+            }
+            else if (mob.length != 10) {
+                alert("Enter Mobile number with 10 digit");
+                return false;
+            }
+
+            if (user == "") {
+                alert("Enter User Name !!");
+                document.form.user.focus();
+                return false;
+            }
+
+            if (passcode == "" || passcode.length < 8 || !re.test(passcode)) {
+                alert("weak password enter minimum 10 digit Password !!" + '\n' + "please choose a strong password");
+                document.form.passcode.focus();
+                return false;
+            }
+
+        }
+    </script>
+</body>
+</center>
+
+</html>

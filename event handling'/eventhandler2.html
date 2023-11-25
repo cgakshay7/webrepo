@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Event Handling</title>
+</head>
+<center>
+<body>
+    <p>Change the background of this webpage</p>
+    <button id="colorBtn" onClick="changeBackgroundColor()" style=" background-color:#04AA6D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5%;
+     ;
+  "> Change Color</button><br><br>
+</body>
+</center>
+ <script>
+        var colors = ['black', 'red', 'blue', 'yellow'];
+        var currentColorIndex = 0;
+
+        function changeBackgroundColor() {
+            document.body.style.background = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        }
+    </script>
+</html>
